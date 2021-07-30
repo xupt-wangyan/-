@@ -59,7 +59,7 @@ var Script = function () {
 
             // is the "remove after drop" checkbox checked?
             if ($('#drop-remove').is(':checked')) {
-                // if so, remove the element from the "Draggable Events" list
+                // if so, remove the element from the "Draggable Events" main_list
                 $(this).remove();
             }
 

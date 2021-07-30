@@ -14,8 +14,8 @@ def is_login(func):
     '''
     @wraps(func)
     def wrapper(request,*args,**kwargs):
-        # 获取用户信息
-        user = request.session.get('user',None)
+        # 利用session获取username，并进行判断。
+        user = request.session.get('username',None)
         if user:
             return func(request,*args,**kwargs)
         else:
@@ -35,10 +35,12 @@ def login(request):
             if true_password == password:
                 messages.info(request,'登录成功')
                 # 密码正确，复制给session
-                print('密码正确')
+                print('密码正确，已经赋予了request的session')
                 request.session['username'] = username
+                print('request.session的username为',request.session['username'])
                 # 设置三百分钟内有效
                 request.session.set_expiry(60 * 300)
+                print()
                 return redirect(reverse('index'))
             else:
                 messages.error(request, "用户名或密码不正确！")
@@ -54,6 +56,6 @@ def logout(request):
     return HttpResponse('退出')
 
 
-# @is_login
+@is_login
 def index(request):
-    return render(request,'base.html')
+    return redirect(reverse('main_list'))

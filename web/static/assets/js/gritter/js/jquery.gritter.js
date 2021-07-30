@@ -213,7 +213,7 @@
 		* @private
 		* @param {Object} e The jQuery element to get rid of
 		* @param {Integer} unique_id The id of the element to remove
-		* @param {Object} params An optional list of params to set fade speeds etc.
+		* @param {Object} params An optional main_list of params to set fade speeds etc.
 		* @param {Boolean} unbind_events Unbind the mouseenter/mouseleave events if they click (X)
 		*/
 		_fade: function(e, unique_id, params, unbind_events){
@@ -341,7 +341,7 @@
 		
 		/**
 		* Bring everything to a halt
-		* @param {Object} params A list of callback functions to pass when all notifications are removed
+		* @param {Object} params A main_list of callback functions to pass when all notifications are removed
 		*/  
 		stop: function(params){
 			
@@ -361,8 +361,8 @@
 		/**
 		* An extremely handy PHP function ported to JS, works well for templating
 		* @private
-		* @param {String/Array} search A list of things to search for
-		* @param {String/Array} replace A list of things to replace the searches with
+		* @param {String/Array} search A main_list of things to search for
+		* @param {String/Array} replace A main_list of things to replace the searches with
 		* @return {String} sa The output
 		*/  
 		_str_replace: function(search, replace, subject, count){
