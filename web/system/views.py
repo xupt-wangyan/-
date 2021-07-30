@@ -33,6 +33,7 @@ def login(request):
         if account:
             true_password = account.password
             if true_password == password:
+                messages.info(request,'登录成功')
                 # 密码正确，复制给session
                 print('密码正确')
                 request.session['username'] = username
@@ -53,5 +54,6 @@ def logout(request):
     return HttpResponse('退出')
 
 
+# @is_login
 def index(request):
-    return HttpResponse('首页')
+    return render(request,'base.html')
